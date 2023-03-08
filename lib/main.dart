@@ -54,22 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
-      if(_counter>60){
+      if(_counter>30){
         _counter =1;
       }
-
-      _text = "Bilangan Prima : ";
-
-      for(int i=2; i<=_counter; i++) {
-        int _prima = 0;
-
-        for (int j = 2; j <= i / 2; j++) {
-          if (i % j == 0) {
-            _prima = 1;
-            break;
-          }
-        }
-        if (_prima == 0) {
+      _text = "bilangan genap kelipatan 3 : ";
+      for(int i=1; i<=_counter; i++){
+        if(i % 2 == 0 && i % 3 == 0){
           _text += '${i}, ';
         }
       }
@@ -87,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Tugas\nAnda sudah menekan tombol ini sebanyak:',
+              'Latihan\nAnda sudah menekan tombol ini sebanyak:',
             ),
             Text(
               '$_counter',
