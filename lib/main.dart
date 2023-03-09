@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:dart_basic/percobaan1.dart';
+import 'package:dart_basic/percobaan2.dart';
+import 'package:dart_basic/percobaan3.dart';
+import 'package:dart_basic/tugas.dart';
+import 'package:dart_basic/latihan.dart';
+
+
+
 
 void main() {
   runApp(const MyApp());
@@ -24,87 +32,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         // primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Praktikum Dart Basic'),
+      home: const percobaan2(title: 'Praktikum Dart Basic'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 1;
-  String _text =" ";
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      if(_counter>60){
-        _counter =1;
-      }
-
-      _text = "Bilangan Prima : ";
-
-      for(int i=2; i<=_counter; i++) {
-        int _prima = 0;
-
-        for (int j = 2; j <= i / 2; j++) {
-          if (i % j == 0) {
-            _prima = 1;
-            break;
-          }
-        }
-        if (_prima == 0) {
-          _text += '${i}, ';
-        }
-      }
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Tugas\nAnda sudah menekan tombol ini sebanyak:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-              _text,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
